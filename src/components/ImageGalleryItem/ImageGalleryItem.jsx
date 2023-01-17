@@ -8,10 +8,6 @@ import css from "./ImageGalleryItem.module.css"
 const ImageGalleryItem = ({samallPicture, name, largePicture}) => {
     let [modal, setModal] = useState(false);
 
-    // toggleModal = () => {
-    //     this.setState(prev => ({ showModal: !prev.showModal }))
-    // }
-
     return (
         <>
             <li className={css.Item} onClick={() => setModal(modal = true)}>
