@@ -9,7 +9,7 @@ import ImageGallery from './ImageGallery/ImageGallery';
 import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
-  let [picture, setPicture] = useState('');
+  const [picture, setPicture] = useState('');
   const [page, setPage] = useState(1);
   const [isLoaded, setIsLoaded] = useState(false);
   const [error, setError] = useState(null);

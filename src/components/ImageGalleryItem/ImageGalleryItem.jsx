@@ -1,40 +1,34 @@
 import Modal from "components/Modal/Modal";
 import PropTypes from 'prop-types';
-import { useEffect } from "react";
-import { useState } from "react";
+// import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import css from "./ImageGalleryItem.module.css"
 
 // window.removeEventListener('keydown', this.handleKeyDown);
 
-
 const ImageGalleryItem = ({samallPicture, name, largePicture}) => {
-    let [modal, setModal] = useState(false);
+    const [modal, setModal] = useState(false);
 
-    const handleOpen = evt => {
-        setModal(true);
-        if (evt.target === evt.currentTarget || evt.code === 'Escape') {
-            setModal(() => false);
-        }
+    const togleModal = () => {
+        setModal(!modal)
     }
 
-    if (modal) {
-        window.addEventListener('keydown', handleOpen);
-    } else {
-        window.removeEventListener('keydown', handleOpen);
-    }
+    useEffect(() => {
+        if (modal) {
+            window.addEventListener('keydown', togleModal);
+        } else if (!modal) {
+            window.removeEventListener('keydown', togleModal);
+        } 
+    },[modal])
     
     return (
         <>
-            <li className={css.Item} onClick={handleOpen}>
+            <li className={css.Item} onClick={togleModal}>
                 <img src={samallPicture} alt={name} className={css.Picture} />
             </li>
             {modal && (
-                <Modal
-                    modalClick={handleOpen}
-                    link={largePicture}
-                    alt={name}
-                />
+                <Modal modalClick={togleModal} link={largePicture} alt={name} />
             )}
         </>
     );
