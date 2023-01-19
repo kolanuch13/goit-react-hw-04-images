@@ -7,8 +7,7 @@ import ImageGalleryItem from "components/ImageGalleryItem/ImageGalleryItem";
 const ImageGallery = ({pictureArray, onClick}) => {
     return (
         <section className={css.Section}>
-            
-            {pictureArray.length && <div className={css.Section}>
+            <div className={css.Section}>
                 <ul className={css.Gallery}>
                     {pictureArray.map(({id, webformatURL, largeImageURL, tags }) =>
                         <ImageGalleryItem
@@ -20,7 +19,7 @@ const ImageGallery = ({pictureArray, onClick}) => {
                     )}
                 </ul>
                 {pictureArray.length >= 12 && <Button onClick={onClick} />}
-            </div>}
+            </div>
         </section>
     )    
 };

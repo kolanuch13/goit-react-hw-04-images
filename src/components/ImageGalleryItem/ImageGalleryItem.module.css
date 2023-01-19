@@ -1,5 +1,6 @@
 .Item{
     width: calc((100vw - 15px) / 5);
+    height: calc((100vw - 100px) / 5);
     min-width: 190px;
     background-color: var(--back-color);
     border-radius: 5px;

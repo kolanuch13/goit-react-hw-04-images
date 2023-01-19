@@ -24,6 +24,11 @@
     border-bottom: 2px solid #a3a3a3;
     border-left: none;
     border-radius: 0px 10px 10px 0px;
-    padding: 0px;
+    padding-left: 3px;
     height: 21px;
+}
+
+.Input:focus {
+    border: 2px solid rgb(43, 43, 136);
+    outline: none;
 }
