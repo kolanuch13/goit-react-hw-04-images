@@ -43,6 +43,10 @@ const App = () => {
     setIsLoaded(true);
   };
 
+  if (error) {
+    toast.error('Something wrong, come back later🤗')
+  }
+
   return (
       <div
           style={{
