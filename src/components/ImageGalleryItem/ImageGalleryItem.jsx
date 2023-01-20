@@ -10,8 +10,12 @@ import css from "./ImageGalleryItem.module.css"
 const ImageGalleryItem = ({samallPicture, name, largePicture}) => {
     const [modal, setModal] = useState(false);
 
-    const togleModal = useCallback(() => {
-        setModal(!modal)
+    const togleModal = useCallback(evt => {
+        if (!modal) {
+            setModal(true)
+        } else if (evt.currentTarget === evt.target || evt.code === 'Escape') {
+            setModal(false);
+        }
   },[modal]);
 
     useEffect(() => {
