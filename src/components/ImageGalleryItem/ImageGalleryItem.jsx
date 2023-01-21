@@ -1,7 +1,6 @@
 import Modal from "components/Modal/Modal";
 import PropTypes from 'prop-types';
-// import { useEffect } from "react";
-import { useState, useEffect, useCallback } from "react";
+import { useState } from "react";
 
 import css from "./ImageGalleryItem.module.css"
 
@@ -10,21 +9,13 @@ import css from "./ImageGalleryItem.module.css"
 const ImageGalleryItem = ({samallPicture, name, largePicture}) => {
     const [modal, setModal] = useState(false);
 
-    const togleModal = useCallback(evt => {
+    const togleModal = evt => {
         if (!modal) {
             setModal(true)
         } else if (evt.currentTarget === evt.target || evt.code === 'Escape') {
             setModal(false);
         }
-  },[modal]);
-
-    useEffect(() => {
-        if (modal) {
-            window.addEventListener('keydown', togleModal);
-        } else if (!modal) {
-            window.removeEventListener('keydown', togleModal);
-        }
-    }, [modal, togleModal]);
+  };
     
     return (
         <>
